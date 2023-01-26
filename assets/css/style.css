@@ -26,7 +26,7 @@ p{
   }
   
 .flex-item {
-    background: #ddd;
+    
     width: calc(50% - 8px);
 }
   
@@ -56,6 +56,7 @@ main{
 
 .game-container{
     margin: 1%;
+    border: medium solid #bf1e2d;
 }
 
 .category-container{
@@ -68,8 +69,11 @@ main{
 }
 
 .categories li{
+    background-color: #bf1e2d;
     display:inline;
     margin: 1%;
+    padding: 1%;
+    color: #fff;
 }
 
 .hangman-image{
@@ -102,16 +106,35 @@ main{
     margin-top: 5%;
 }
 
-.hint{
-
+.options-container{
+    margin: 1%;
+    display: flex;
 }
 
-.restart{
+.options{
+    list-style: none;
+}
 
+.options li{
+    background-color: #bf1e2d;
+    display:inline;
+    margin: 1%;
+    padding: 1%;
+    color: #fff;
 }
 
 /* Footer */
 
+footer{
+    display: flex;
+    justify-content:center;
+    margin: 2%;
+}
+
+#copyright{
+    font-weight: 600;
+    padding-right: 2%;
+}
 
 /* responsive layout via media queries*/
 
