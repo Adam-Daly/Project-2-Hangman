@@ -34,8 +34,27 @@ for (let category in categories) {
     categoriesDiv.appendChild(categoryButton);
 };
 
+//Pick a random word from the chosen category and make hint button
+function selectWord(selectedCategory) {
+    let randomWord = categories[selectedCategory][Math.floor(Math.random() * categories[selectedCategory].length)];
+    word = randomWord;
+    hint = hints[randomWord];
+    let hintButton = document.getElementById("hint-button");
+    hintButton.addEventListener("click", function(){
+        revealHint(hint);
+    });
+    let wordToGuess = document.getElementById("word-to-guess");
+    wordToGuess.innerHTML = "";
+    for (let i = 0; i < word.length; i++) {
+        wordToGuess.innerHTML += "_";
+    }
+}
 
-//Pick a random word from the chosen category
+//Show hint on click
+function revealHint(currentHint){
+    let hintDisplay = document.getElementById("hint");
+    hintDisplay.innerHTML = currentHint;
+};
 
 //Make alphabet buttons for guessing letters
 
