@@ -1,6 +1,6 @@
 // Wait for dom to be loaded before fetching elements
 document.addEventListener('DOMContentLoaded', function () {
-    
+
     //Define variables
     let word;
     let category;
@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     //Pick a random word from the chosen category, make hint button and generate blank word
     function selectWord(selectedCategory) {
-        reset()
+        reset();
         // Generate a random floating point number between 0-1, multiply it by the number of
         // words in the category and then use floor to round down to the nearest integer. Then choose a word from the 
         // chosenCategory using the integer as an index value
