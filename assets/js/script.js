@@ -34,8 +34,11 @@ for (let category in categories) {
     categoriesDiv.appendChild(categoryButton);
 };
 
-//Pick a random word from the chosen category and make hint button
+//Pick a random word from the chosen category, make hint button and generate blank word
 function selectWord(selectedCategory) {
+    // Generate a random floating point number between 0-1, multiply it by the number of
+    // words in the category and then use floor to round down to the nearest integer. Then choose a word from the 
+    // chosenCategory using the integer as an index value
     let randomWord = categories[selectedCategory][Math.floor(Math.random() * categories[selectedCategory].length)];
     word = randomWord;
     hint = hints[randomWord];
@@ -57,6 +60,8 @@ function revealHint(currentHint){
 };
 
 //Make alphabet buttons for guessing letters
+
+
 
 //Check letter against word by rebuilding the word through comparison
 
