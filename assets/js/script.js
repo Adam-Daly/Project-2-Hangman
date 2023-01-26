@@ -36,10 +36,18 @@ document.addEventListener('DOMContentLoaded', function () {
         let categoryButton = document.createElement("LI");
         categoryButton.innerHTML = category;
         categoryButton.addEventListener("click", function(){
+            for (elem of document.getElementsByClassName("guessed")) {
+                elem.classList.remove("guessed");
+            }
+            guesses = 8;
+            guessedLetters = [];
+            incorrectGuesses = [];
+            document.getElementById("hangman-image").src = "hangman-8.png";
+            document.getElementById("hint").innerHTML = "Need a Hint?";
             selectWord(category);
         });
         categoriesDiv.appendChild(categoryButton);
-    };
+    }
 
     //Pick a random word from the chosen category, make hint button and generate blank word
     function selectWord(selectedCategory) {
@@ -64,7 +72,7 @@ document.addEventListener('DOMContentLoaded', function () {
     function revealHint(currentHint){
         let hintDisplay = document.getElementById("hint");
         hintDisplay.innerHTML = currentHint;
-    };
+    }
 
     //Make alphabet buttons for guessing letters, using the alphabet string
     let lettersDiv = document.getElementById("letters");
@@ -90,11 +98,7 @@ document.addEventListener('DOMContentLoaded', function () {
         // check if the letter has already been guessed, add to guessedLetters if not 
         if (!guessedLetters.includes(currentLetter)) {
             guessedLetters.push(currentLetter);
-            console.log(word + "one")
-            console.log(currentLetter + "one")
             if (word.includes(currentLetter)) {
-                console.log(currentLetter + "two")
-                console.log(word + "two")
                 let newWordToGuess = [];
                 for (let i = 0; i < word.length; i++) {
                     if (word[i] === currentLetter) {
@@ -123,5 +127,22 @@ document.addEventListener('DOMContentLoaded', function () {
     }  
     
     //Make restart feature and button
+    function reset() {
+        for (elem of document.getElementsByClassName("guessed")) {
+            elem.classList.remove("guessed");
+        }
+        console.log("RESET!")
+        selectWord(category);
+        guesses = 8;
+        guessedLetters = [];
+        incorrectGuesses = [];
+        document.getElementById("hangman-image").src = "hangman-8.png";
+        document.getElementById("hint").innerHTML = "Need a Hint?";
 
+    }
+      
+    let resetButton = document.getElementById("reset-button");
+    resetButton.addEventListener("click", function(){
+        reset();
+    });	
 });
