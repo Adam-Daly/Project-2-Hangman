@@ -64,11 +64,11 @@ main{
     display: flex;
 }
 
-.categories{
+#categories{
     list-style: none;
 }
 
-.categories li{
+#categories li{
     background-color: #bf1e2d;
     display:inline;
     margin: 1%;

@@ -24,6 +24,16 @@ let hints = {
 };
 
 //Make category buttons
+let categoriesDiv = document.getElementById("categories");
+for (let category in categories) {
+    let categoryButton = document.createElement("LI");
+    categoryButton.innerHTML = category;
+    categoryButton.addEventListener("click", function(){
+        selectWord(category);
+    });
+    categoriesDiv.appendChild(categoryButton);
+};
+
 
 //Pick a random word from the chosen category
 
