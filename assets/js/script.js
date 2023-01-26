@@ -1,11 +1,11 @@
 // Wait for dom to be loaded before fetching elements
 document.addEventListener('DOMContentLoaded', function () {
-
+    
     //Define variables
     let word;
     let category;
     let hint;
-    let guesses = 8;
+    let guesses = 7;
     let guessedLetters = [];
     let incorrectGuesses = [];
     let alphabet = "abcdefghijklmnopqrstuvwxyz";
@@ -36,25 +36,15 @@ document.addEventListener('DOMContentLoaded', function () {
         let categoryButton = document.createElement("LI");
         categoryButton.innerHTML = category;
         categoryButton.addEventListener("click", function(){
-            //get all letters with guessed class, add back red bg and remove guessed
-            let elements = document.querySelectorAll('.guessed');
-            for (let i = 0; i < elements.length; i++) {
-                elements[i].style.backgroundColor = "#bf1e2d";
-                elements[i].classList.remove('guessed');
-            }
-            //reset when category is selected
-            guesses = 8;
-            guessedLetters = [];
-            incorrectGuesses = [];
-            document.getElementById("hangman-image").src = "hangman-8.png";
-            document.getElementById("hint").innerHTML = "Need a Hint?";
             selectWord(category);
         });
         categoriesDiv.appendChild(categoryButton);
     }
 
+
     //Pick a random word from the chosen category, make hint button and generate blank word
     function selectWord(selectedCategory) {
+        reset()
         // Generate a random floating point number between 0-1, multiply it by the number of
         // words in the category and then use floor to round down to the nearest integer. Then choose a word from the 
         // chosenCategory using the integer as an index value
@@ -70,6 +60,22 @@ document.addEventListener('DOMContentLoaded', function () {
         for (let i = 0; i < word.length; i++) {
             wordToGuess.innerHTML += "_";
         }
+    }
+
+    function reset() {
+        //get all letters with guessed class, add back red bg and remove guessed
+        let elements = document.querySelectorAll('.guessed');
+        for (let i = 0; i < elements.length; i++) {
+            elements[i].style.backgroundColor = "#bf1e2d";
+            elements[i].classList.remove('guessed');
+        }
+        //reset when category is selected
+        guesses = 7;
+        document.getElementById("guesses").innerHTML = "Guesses Remaining: " + guesses;
+        guessedLetters = [];
+        incorrectGuesses = [];
+        document.getElementById("hangman-image-src").src = "assets/images/hangman-7.png";
+        document.getElementById("hint").innerHTML = "Need a Hint?";
     }
 
     //Show hint on click
@@ -121,7 +127,8 @@ document.addEventListener('DOMContentLoaded', function () {
             else {
                 incorrectGuesses.push(currentLetter);
                 guesses--;
-                document.getElementById("hangman-image").src = "hangman-" + guesses + ".png";
+                document.getElementById("guesses").innerHTML = "Guesses Remaining: " + guesses;
+                document.getElementById("hangman-image-src").src = "assets/images/hangman-" + guesses + ".png";
                 if (guesses === 0) {
                     alert("You lost. The word was " + word + ".");
                     reset();
