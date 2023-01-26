@@ -36,9 +36,13 @@ document.addEventListener('DOMContentLoaded', function () {
         let categoryButton = document.createElement("LI");
         categoryButton.innerHTML = category;
         categoryButton.addEventListener("click", function(){
-            for (elem of document.getElementsByClassName("guessed")) {
-                elem.classList.remove("guessed");
+            //get all letters with guessed class, add back red bg and remove guessed
+            let elements = document.querySelectorAll('.guessed');
+            for (let i = 0; i < elements.length; i++) {
+                elements[i].style.backgroundColor = "#bf1e2d";
+                elements[i].classList.remove('guessed');
             }
+            //reset when category is selected
             guesses = 8;
             guessedLetters = [];
             incorrectGuesses = [];
@@ -125,24 +129,5 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         }
     }  
-    
-    //Make restart feature and button
-    function reset() {
-        for (elem of document.getElementsByClassName("guessed")) {
-            elem.classList.remove("guessed");
-        }
-        console.log("RESET!")
-        selectWord(category);
-        guesses = 8;
-        guessedLetters = [];
-        incorrectGuesses = [];
-        document.getElementById("hangman-image").src = "hangman-8.png";
-        document.getElementById("hint").innerHTML = "Need a Hint?";
 
-    }
-      
-    let resetButton = document.getElementById("reset-button");
-    resetButton.addEventListener("click", function(){
-        reset();
-    });	
 });
