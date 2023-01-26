@@ -102,8 +102,20 @@ main{
     margin: 1%;
 }
 
-.letters{
-    margin-top: 5%;
+#letters{
+    margin: 5%;
+    list-style: none;
+}
+
+#letters li{
+    background-color: #bf1e2d;
+    display:inline-block;
+    margin: 1%;
+    color: #fff;
+    height: 25px;
+    width: 25px;
+    text-align: center;
+    font-weight: bold;
 }
 
 .options-container{
