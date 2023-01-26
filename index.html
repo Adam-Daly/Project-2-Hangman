@@ -7,47 +7,51 @@
     <link rel="stylesheet" href="assets/css/style.css">
     <title>Hangman</title>
 </head>
-<body>
-    <header>
-        <h1 class="heading">
-        <img class="logo" src="assets/images/logo.png" alt="logo"> Hangman
-        </h1>
-    </header>
-    <main>
-        <div class="game-container">
 
-            <div class="category-container">
-                <ul class="categories">
+<body>
+
+    <header class="flex-container two-col">
+        <h1 class="heading flex-item two-col"><img class="logo" src="assets/images/hangman-logo.png" alt="logo">Hangman</h1>
+    </header>
+
+    <main>
+        <div class="game-container flex-container">
+
+            <div class="category-container flex-container two-col">
+                <h2 class="flex-item two-col">Pick a Category to Begin:</h2>
+                <ul class="categories flex-item two-col">
                     <li>Category 1</li>
                     <li>Category 2</li>
                     <li>Category 3</li>
                 </ul>
             </div>
 
-            <div class="hangman-image">
+            <div class="hangman-image flex-item">
                 <img src="hangman-01.jpg" alt="Hangman Life Indicator">
             </div>
 
-            <div class="word">
+            <div class="word flex-item">
             </div>
 
-            <div class="letters">
+            <div class="letters flex-item two-col">
             </div>
 
-            <div class="hint">
+            <div class="hint flex-item">
 
             </div>
 
-            <div class="restart">
+            <div class="restart grid-item flex-item">
 
             </div>
         </div>
     </main>
 
-    <footer>
+    <footer flex-container>
 
     </footer>
 
     <script src="assets/js/script.js"></script>
+
 </body>
+
 </html>

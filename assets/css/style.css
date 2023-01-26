@@ -9,7 +9,7 @@
 body{
     font-family: 'Raleway', sans-serif;
     font-weight: 300;
-    max-width: 1920px;
+    max-width: 1000px;
     margin: auto;
 }
 
@@ -17,33 +17,59 @@ p{
     font-size: 120%;
 }
 
+/* Grid Structure */
+
+.flex-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+.flex-item {
+    background: #ddd;
+    width: calc(50% - 8px);
+}
+  
+.two-col {
+    width: calc(100% - 8px);
+    justify-content: center;
+    display: flex;
+}
+
 /* Header */
 
 .heading{
-
+    margin: 1%;
 }
 
 .logo{
-
+    width: 35px;
+    height: 35px;
+    padding-right: 1%;
 }
 
 /* Main - Hangman Game */
 
 main{
-    max-width: 1000px;
-    margin: auto;
+
 }
 
 .game-container{
-
+    margin: 1%;
 }
 
 .category-container{
-
+    margin: 1%;
+    display: flex;
 }
 
 .categories{
+    list-style: none;
+}
 
+.categories li{
+    display:inline;
+    margin: 1%;
 }
 
 .hangman-image{
@@ -67,3 +93,12 @@ main{
 }
 
 /* Footer */
+
+
+/* responsive layout via media queries*/
+
+@media (max-width: 768px) {
+    .flex-item {
+        width: 100%;
+    }
+}
