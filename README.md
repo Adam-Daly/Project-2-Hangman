@@ -1,108 +1,119 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Hangman
 
-Welcome Adam-Daly,
+This project aims to recreate the game "Hangman" with a minimal aesthetic, dynamic images and life counter and some simple category and hint options.
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+![Responsice](assets/images/responsive.png)
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **September 1, 2021**
+## Features 
 
-## Gitpod Reminders
+### Existing Features
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+- __Hangman Logo and Heading__
 
-`python3 -m http.server`
+  - A simple but iconic logo to represent the game and a googlefont heading give a minimal aesthetic.
 
-A blue button should appear to click: _Make Public_,
+![Logo](media/love_maths_logo.png)
 
-Another blue button should appear to click: _Open Browser_.
+- __The Categories__
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+  - The user can see three categories and an indication that this is where to start. Clicking on one of them will prep the game area with a hidden word but reveal the word length. It will also clear the board in any state and get back to a fresh state, ready to play. The letters are reset to red, the images reset to the beginning, the hint is hidden and changed to the new word and the guess attempts are reset to 7.
 
-A blue button should appear to click: _Make Public_,
+![Categories](media/love_maths_icons.png)
 
-Another blue button should appear to click: _Open Browser_.
+- __The Hangman State section__
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+  - The image of the eponyous hangman, the images dynamically change every time an incorrect guess is taken. There are 7 images building up the hangman piece by piece and then 1 final image showing the fail state of the poor hangman if you fail to guess the word after 7 incorrect letters. Undeneath is a number of how many guesses you have left.
 
-To log into the Heroku toolbelt CLI:
+![Hangman State](media/love_maths_question.png)
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+- __The Game Area__
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
+  - This section has the word you are guessing itself and shows you the length of the word, as well as the letters of the alphabet to click for each attempt. The letters grey out and cannot be guessed twice to prevent wasting guesses or time. 
 
-------
+![Game Area](media/love_maths_answer.png)
 
-## Release History
+- __The Hint Area__
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+  - This section has a hidden hint that the user can click on to help with guessing the words. The hint is reset and hidden when you choose a category.
 
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
+![Hint Area](media/love_maths_answer.png)
 
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
+### Features Left to Implement
 
-**July 2 2021:** Remove extensions that are not available in Open VSX.
+- Separate the reset feature from the category feature.
+- Add more categories and ways to expand on lists of words that can be used.
+- Add more variety of images so you get different hangmen or themed images depending on the category.
+- Automatically pick a new category and reset on win.
 
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
+## Testing 
 
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
+Using chrome dev tools the hangman site was tested in responsive, 4k, iphone XE, iphone SR, iphone 12, samsung galaxy s8, samsung galaxy s20, ipad air and ipad mini to ensure the layout was suitably responsive and there were no out of place elements.
 
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
+[iPhone 12](assets/images/media/iphone-12.png)
 
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
+[Samsung Galaxy S8](assets/images/samsung-galaxy-s8.png)
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
+[iPad Air](assets/images/iPad-Air.png)
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
+### Validator Testing 
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
+- HTML
+    - No errors were returned when passing through the official [W3C validator](https://validator.w3.org/nu/?doc=https%3A%2F%2Fcode-institute-org.github.io%2Flove-maths%2F)
+- CSS
+    - No errors were found when passing through the official [(Jigsaw) validator](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fvalidator.w3.org%2Fnu%2F%3Fdoc%3Dhttps%253A%252F%252Fcode-institute-org.github.io%252Flove-maths%252F&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)
+- JavaScript
+    - No errors were found when passing through the official [Jshint validator](https://jshint.com/)
+      - The following metrics were returned: 
+      - There are 11 functions in this file.
+      - Function with the largest signature takes 2 arguments, while the median is 0.
+      - Largest function has 10 statements in it, while the median is 3.
+      - The most complex function has a cyclomatic complexity value of 4 while the median is 2.
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
+### Unfixed Bugs
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
+- Due to not fully separating the reset feature from the category buttons, the game starts in a state where you cannot instantly play without clicking the category buttons to play which may cause some users to try to start playing right away without reading the text indicating to click the category. 
 
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
+- Related to this, the letters turn gray giving misleading feedback before you click a category.
 
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
+## Deployment
 
-------
+- The site was deployed to GitHub pages. The steps to deploy are as follows: 
+  - In the GitHub repository, navigate to the Settings tab 
+  - From the source section drop-down menu, select the Master Branch
+  - Once the master branch has been selected, the page will be automatically refreshed with a detailed ribbon display to indicate the successful deployment. 
 
-## FAQ about the uptime script
+The live link can be found here - https://adam-daly.github.io/Project-2-Hangman/
 
-**Why have you added this script?**
 
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
+## Credits 
 
-**How will this affect me?**
+### Content 
 
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
+- Flexbox css: https://www.w3schools.com/css/css3_flexbox_container.asp
+- HTML Framework and Javascript starting point: Code Institutes Love Maths Project
+- Hangman Specific Help :
+    - https://codepen.io/cathydutton/pen/JjpxMm
+    - https://www.youtube.com/watch?v=T6uht1A0114
 
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
 
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
+### Media
 
-**So….?**
+- Hangman Logo : https://www.iconfinder.com/iconsets/brain-games
+- Hangman Stages: https://thecityofregalia.tumblr.com/post/94905917024/hangman
 
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
+## Other General Project Advice
 
-**Can I opt out?**
+Below you will find a couple of extra tips that may be helpful when completing your project. Remember that each of these projects will become part of your final portfolio so it’s important to allow enough time to showcase your best work! 
 
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
+- One of the most basic elements of keeping a healthy commit history is with the commit message. When getting started with your project, read through [this article](https://chris.beams.io/posts/git-commit/) by Chris Beams on How to Write  a Git Commit Message 
+  - Make sure to keep the messages in the imperative mood 
 
-```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
+- When naming the files in your project directory, make sure to consider meaningful naming of files, point to specific names and sections of content.
+  - For example, instead of naming an image used ‘image1.png’ consider naming it ‘landing_page_img.png’. This will ensure that there are clear file paths kept. 
 
-**Anything more?**
+- Do some extra research on good and bad coding practices, there are a handful of useful articles to read, consider reviewing the following list when getting started:
+  - [Writing Your Best Code](https://learn.shayhowe.com/html-css/writing-your-best-code/)
+  - [HTML & CSS Coding Best Practices](https://medium.com/@inceptiondj.info/html-css-coding-best-practice-fadb9870a00f)
+  - [Google HTML/CSS Style Guide](https://google.github.io/styleguide/htmlcssguide.html#General)
 
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
-
----
-
-Happy coding!
+Getting started with your Portfolio Projects can be daunting, planning your project can make it a lot easier to tackle, take small steps to reach the final outcome and enjoy the process! 
