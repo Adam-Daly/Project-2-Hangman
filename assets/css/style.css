@@ -73,15 +73,33 @@ main{
 }
 
 .hangman-image{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
 
+.hangman-image img{
+    margin: 1%;
+}
+
+.hangman-image h3{
+    margin: 1%;
 }
 
 .word{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
 
+.word h3{
+    margin: 1%;
 }
 
 .letters{
-
+    margin-top: 5%;
 }
 
 .hint{
